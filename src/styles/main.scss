@@ -1,0 +1,33 @@
+@import "../../node_modules//bootstrap//scss/bootstrap";
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  width: 100%;
+  background: #fff;
+}
+
+.header {
+  @include flex-center;
+  padding: 2em;
+  background: lightseagreen;
+  height: 20vh;
+}
+
+.content {
+  @include flex-center;
+  padding: 2em;
+  background: lightblue;
+  height: 80vh;
+}
