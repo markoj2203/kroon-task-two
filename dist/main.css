@@ -9935,8 +9935,10 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
 body {
   width: 100%;
+  height: 100%;
   background: #fff;
 }
 
@@ -9951,9 +9953,70 @@ body {
 
 .content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2em;
+  flex-direction: column;
+  padding: 1em 2em;
   background: lightblue;
   height: 80vh;
+}
+.content .content-scroll {
+  height: 70vh;
+  overflow-y: auto;
+}
+
+.row {
+  /*MOzda dodeliti drugu klasu da se ne menja jos nesto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid lightseagreen;
+  padding: 1em;
+  margin: 1em;
+}
+
+.repo-img {
+  vertical-align: middle;
+  border-style: none;
+  width: 200px;
+}
+
+.pagination-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  height: 10vh;
+}
+
+.text-style {
+  word-wrap: break-word;
+}
+
+.clickable_element {
+  cursor: pointer;
+  /* mouse over link */
+}
+.clickable_element:hover {
+  opacity: 0.7;
+}
+
+.active_row_element {
+  border-color: mediumblue;
+  border-width: 3px;
+}
+.active_row_element img {
+  /* grayscale/Black */
+  background: #303133;
+  opacity: 0.7;
+}
+.active_row_element .text-style {
+  color: #06a9f6;
+}
+
+@media (max-width: 768px) {
+  .text-style {
+    text-align: center;
+  }
+
+  .repo-img {
+    width: 150px;
+  }
 }

@@ -1,5 +1,11 @@
 @import "../../node_modules//bootstrap//scss/bootstrap";
 
+$lightblue: lightblue;
+$lightseagreen: lightseagreen;
+$mediumblue: mediumblue;
+$shadow-color: #303133;
+$sea-blue: #06a9f6;
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -13,21 +19,85 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
 body {
   width: 100%;
+  height: 100%;
   background: #fff;
 }
 
 .header {
   @include flex-center;
   padding: 2em;
-  background: lightseagreen;
+  background: $lightseagreen;
   height: 20vh;
 }
 
 .content {
-  @include flex-center;
-  padding: 2em;
-  background: lightblue;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+  background: $lightblue;
   height: 80vh;
+  .content-scroll {
+    height: 70vh;
+    overflow-y: auto;
+  }
+}
+
+.row {
+  /*MOzda dodeliti drugu klasu da se ne menja jos nesto */
+  @include flex-center;
+  border: 2px solid $lightseagreen;
+  padding: 1em;
+  margin: 1em;
+}
+
+.repo-img {
+  vertical-align: middle;
+  border-style: none;
+  width: 200px;
+}
+
+.pagination-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  height: 10vh;
+}
+
+.text-style {
+  word-wrap: break-word;
+}
+
+.clickable_element {
+  cursor: pointer;
+
+  /* mouse over link */
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.active_row_element {
+  border-color: $mediumblue;
+  border-width: 3px;
+  img {
+    /* grayscale/Black */
+    background: $shadow-color;
+    opacity: 0.7;
+  }
+  .text-style {
+    color: $sea-blue;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-style {
+    text-align: center;
+  }
+
+  .repo-img {
+    width: 150px;
+  }
 }
