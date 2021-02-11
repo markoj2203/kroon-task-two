@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import GitRepoUser from "./GitRepoUser";
 import Pagination from "./Pagination";
+import Loading from "./Loading";
 
 export default function Content() {
   const [data, setData] = useState([]);
@@ -29,7 +30,6 @@ export default function Content() {
     await axios
       .get(`https://api.github.com/gists/public?per_page=100`)
       .then(function (response) {
-        console.log(response.data);
         setData(response.data);
         setLoading(false);
       });
@@ -57,14 +57,24 @@ export default function Content() {
 
   return (
     <div className="content">
-      <div id="scroll-div" className="content-scroll" onScroll={scrollDown}>
-        {currentPost.map((item, i) => (
-          <div key={i}>
-            <GitRepoUser item={item} />
+      {loading === true ? (
+        <Loading />
+      ) : (
+        <>
+          <div id="scroll-div" className="content-scroll" onScroll={scrollDown}>
+            {currentPost.map((item, i) => (
+              <div key={i}>
+                <GitRepoUser item={item} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <Pagination limit={limit} totalPosts={data.length} paginate={paginate} />
+          <Pagination
+            limit={limit}
+            totalPosts={data.length}
+            paginate={paginate}
+          />
+        </>
+      )}
     </div>
   );
 }
