@@ -100,4 +100,10 @@ body {
   .repo-img {
     width: 150px;
   }
+
+  .active_row_element {
+    img {
+      z-index: 1;
+    }
+  }
 }

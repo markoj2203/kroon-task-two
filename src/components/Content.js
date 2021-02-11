@@ -47,7 +47,13 @@ export default function Content() {
   const currentPost = data.slice(indexOfFirstPost, indexOfLastPost);
 
   //Change Page
-  const paginate = (page) => setPage(page);
+  const paginate = (page) => {
+    //remove class from dom
+    var classElem = document.getElementsByClassName("active_row_element");
+    while (classElem.length)
+      classElem[0].classList.remove("active_row_element");
+    setPage(page);
+  };
 
   return (
     <div className="content">
