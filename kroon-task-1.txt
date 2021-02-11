@@ -1,0 +1,7 @@
+//KROON TASK 1
+
+
+1) Treba da se koristi konstruktor na pocetku klase App za definisanje propertija
+2) People i House nisu definisani kao posebne komponente a koriste se unutar klase app
+3) Bilo bi ok refaktorisati kod sa hook-ovima, bilo bi dosta manje koda, sve ove pomocne metode za connect i life circle resiti sa useEffect()
+
